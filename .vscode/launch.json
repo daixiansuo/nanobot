@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Module",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "nanoboot"
+        },
+        {
+            "name": "Nanobot CLI 调试",
+            "type": "python",
+            "request": "launch",
+            "module": "nanobot.cli.commands", // 核心：和你运行的 -m 模块名一致
+            "args": [
+                "--help"
+            ], // 调试时的命令参数，可改为 ["start"] 等
+            "justMyCode": false,
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+    ]
+}
