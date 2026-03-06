@@ -1209,7 +1209,3 @@ def _login_github_copilot() -> None:
 # 文件入口：当直接运行此文件时启动 CLI
 if __name__ == "__main__":
     app()
-
-
-if __name__ == "__main__":
-    app()
