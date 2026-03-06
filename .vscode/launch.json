@@ -13,7 +13,7 @@
             "request": "launch",
             "module": "nanobot.cli.commands", // 核心：和你运行的 -m 模块名一致
             "args": [
-                "--help"
+                "status"
             ], // 调试时的命令参数，可改为 ["start"] 等
             "justMyCode": false,
             "console": "integratedTerminal",

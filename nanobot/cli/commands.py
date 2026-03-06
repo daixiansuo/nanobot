@@ -727,9 +727,12 @@ def agent(
         # 注册信号处理器
         signal.signal(signal.SIGINT, _handle_signal)   # Ctrl+C
         signal.signal(signal.SIGTERM, _handle_signal)  # kill 命令
-        signal.signal(signal.SIGHUP, _handle_signal)   # 终端断开
+        # SIGHUP 只在非 Windows 平台支持
+        if os.name != 'nt':
+            signal.signal(signal.SIGHUP, _handle_signal)   # 终端断开
         # 忽略 SIGPIPE（防止写入关闭的管道时静默退出）
-        signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+        if os.name != 'nt':
+            signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 
         async def run_interactive():
             """交互式模式主循环"""
